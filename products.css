@@ -1,3 +1,4 @@
+/* Common styling */
 @import url('index.css'); /* Import common styles */
 
 body {
@@ -56,9 +57,10 @@ body {
     }
 }
 
+/* Product List Layout - 4 items per row for larger screens */
 .product-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
     gap: 20px;
     margin-top: 30px;
 }
@@ -122,9 +124,16 @@ body {
     box-shadow: 0 0 10px rgba(99, 59, 39, 0.6);
 }
 
+/* Adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on medium screens */
+    }
+}
+
 @media (max-width: 768px) {
     .product-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 item per row on small screens */
     }
 }
 
