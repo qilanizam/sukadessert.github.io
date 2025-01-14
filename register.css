@@ -1,0 +1,43 @@
+@import url('index.css'); /* Import common styles */
+
+.register {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.register h1 {
+    color: #623b27;
+    font-size: 2.5rem;
+}
+
+.register form {
+    margin: 20px auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register label {
+    color: #623b27;
+    font-weight: bold;
+}
+
+.register input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.register button {
+    padding: 10px 20px;
+    background-color: #8b4513;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register button:hover {
+    background-color: #623b27;
+}

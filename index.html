@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Suka Dessert</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="slideshow.js" defer></script>
+    <script src="bestshow.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="sukadessert logo.png" alt="Chocolate Dessert Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="outlet.html">Outlet</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="promotion.html">Promotion</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Suka Dessert</h1>
+            <div class="slideshow">
+                <div class="slide">Pure Bliss</div>
+            </div>
+        </section>
+
+        <section class="interactive-image">
+            <h2>Explore Our Collection</h2>
+            <img src="sukadessert logo.png" alt="Chocolate Collection" usemap="#chocolateMap">
+            <map name="chocolateMap">
+                <area shape="rect" coords="50,50,150,150" href="products.html" alt="Chocolate Box">
+                <area shape="circle" coords="300,200,50" href="outlet.html" alt="Outlet">
+                <area shape="poly" coords="400,300,450,350,400,400" href="about_us.html" alt="About Us">
+            </map>
+        </section>
+
+        <section class="best-sellers">
+            <h2>Best Sellers</h2>
+            <div class="slider-container">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="suka1.jpg" alt="Chocolate 1">
+                        <p>Chocolate Crowd Brownies</p>
+                    </div>
+                    <div class="slide">
+                        <img src="suka8.jpg" alt="Chocolate 2">
+                        <p>Mix of Happiness</p>
+                    </div>
+                    <div class="slide">
+                        <img src="suka11.jpg" alt="Chocolate 3">
+                        <p>Six in One</p>
+                    </div>
+                    <div class="slide">
+                        <img src="suka5.jpg" alt="Chocolate 3">
+                        <p>Happy Cheese Box</p>
+                    </div>
+                    <div class="slide">
+                        <img src="suka3.jpg" alt="Chocolate 3">
+                        <p>Elysium Cake</p>
+                    </div>
+                    <div class="slide">
+                        <img src="suka13.jpg" alt="Chocolate 2">
+                        <p>Nuttela in Pod</p>
+                    </div>
+                    <div class="slide">
+                        <img src="suka14.jpg" alt="Chocolate 3">
+                        <p>Cheese Tart Chocolate</p>
+                    </div>
+                    <div class="slide">
+                        <img src="suka16.jpg" alt="Chocolate 3">
+                        <p>Berrychoc in Bowl</p>
+                    </div>
+                    <div class="slide">
+                        <img src="suka17.jpg" alt="Chocolate 3">
+                        <p>Chocolate of Mix</p>
+                    </div>
+                </div>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="media-grid">
+            <div class="grid-item image1">
+                <img src="choco img 1.jpg" alt="Chocolate Image 1">
+            </div>
+            <div class="grid-item video1">
+                <video autoplay loop muted>
+                    <source src="Chocolate Vid Homepage 1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item image2">
+                <img src="choco img 2.jpg" alt="Chocolate Image 2">
+            </div>
+            <div class="grid-item video2">
+                <video autoplay loop muted>
+                    <source src="Chocolate Vid Homepage 2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="grid-item image3">
+                <img src="choco img 3.jpg" alt="Chocolate Image 3">
+            </div>
+            <div class="grid-item video3">
+                <video autoplay loop muted>
+                    <source src="Chocolate Vid Homepage 3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="terms.html">Terms and Conditions</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="business-hours">
+            <p>Business Hours: Mon-Fri, 9AM - 6PM</p>
+        </div>
+        <div id="datetime" class="datetime"></div> <!-- Date and Time Section -->
+    </footer>
+
+    <!-- Link to External JavaScript File for Date and Time -->
+    <script src="datetime.js"></script>
+</body>
+</html>

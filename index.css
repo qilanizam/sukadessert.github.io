@@ -1,0 +1,293 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://wallpapercave.com/wp/wp11593589.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8de7e;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 5px solid #f4a261;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #623b27;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #8b4513;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  color: #fff;
+  position: relative;
+  font-size: 250%;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero h1, .slideshow {
+  position: relative;
+  z-index: 2;
+  font-size: 3rem; /* Adjust font size */
+  animation: rainbow 3s linear infinite; /* Apply rainbow animation */
+}
+
+/* Rainbow Text Animation */
+@keyframes rainbow {
+  0% { color: #ff0000; }
+  14% { color: #ff7f00; }
+  28% { color: #ffff00; }
+  42% { color: #00ff00; }
+  57% { color: #0000ff; }
+  71% { color: #4b0082; }
+  85% { color: #9400d3; }
+  100% { color: #ff0000; }
+}
+
+/* Interactive Image Section */
+.interactive-image {
+  background-color: #f8de7e;
+  padding: 100px 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  text-align: center;
+  max-width: 1200px;
+}
+
+.interactive-image img {
+  max-width: 100%;
+  border: 2px solid #f8de7e;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.interactive-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Best Sellers Slideshow */
+.best-sellers {
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #f8c210;
+  max-width: 1200px; /* Limit the max width */
+  margin: 0 auto; /* Center the slideshow */
+  border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+.best-sellers h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #623b27;
+}
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 90%; /* Set width to 90% of the container */
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Individual Slides */
+.slide {
+  min-width: 33%; /* Adjust the width of each slide (3 slides per row) */
+  box-sizing: border-box;
+  text-align: center;
+  padding: 10px; /* Optional: Add padding between slides */
+}
+
+.slide img {
+  width: 100%; /* Make images responsive */
+  height: 200px; /* Set a fixed height */
+  object-fit: cover; /* Ensure images maintain aspect ratio */
+  border-radius: 10px;
+}
+
+.slide p {
+  font-size: 1rem;
+  color: #623b27;
+  margin-top: 10px;
+}
+
+/* Navigation Arrows */
+button {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  transform: translateY(-50%);
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Responsive Design for Best Sellers */
+@media (max-width: 768px) {
+  .best-sellers h2 {
+    font-size: 1.5rem; /* Adjust heading size for smaller screens */
+  }
+
+  .slider-container {
+    width: 100%; /* Make the slideshow container full width on small screens */
+  }
+
+  .slide {
+    min-width: 100%; /* Display slides as 1 per row on smaller screens */
+  }
+
+  .slide img {
+    height: 150px; /* Adjust height for smaller screens */
+  }
+}
+
+/* Media Grid */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  gap: 20px; /* Space between items */
+  padding: 20px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item img,
+.grid-item video {
+  width: 100%;
+  height: 350px; /* Set a fixed height for uniformity */
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.grid-item:hover img,
+.grid-item:hover video {
+  transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+/* Responsive Design for Media Grid */
+@media (max-width: 768px) {
+  .media-grid {
+    grid-template-columns: 1fr; /* 1 item per row on small screens */
+  }
+
+  .grid-item img,
+  .grid-item video {
+    height: 150px; /* Adjust height for smaller screens */
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #f8de7e;
+  color: #623b27;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #623b27;
+  margin: 0 10px;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #8b4513;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slide img {
+    width: 90%;
+  }
+}
