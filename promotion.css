@@ -69,6 +69,29 @@ nav ul li a.active {
     color: #8b4513;
 }
 
+/* Promotion Section Styling */
+.promotion {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.promotion h1 {
+    font-size: 2.5rem;
+    color: #623b27;
+    margin-bottom: 10px;
+}
+
+.promotion p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
 /* Promotion Items Styling */
 .promotion-item {
     background-color: #f8de7e;
@@ -76,6 +99,30 @@ nav ul li a.active {
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* When the item is clicked and revealed */
+.promotion-item.revealed .secret-code {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Hidden state for secret code */
+.promotion-item .secret-code {
+    display: none;
+    opacity: 0;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffeb3b;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.promotion-item:hover {
+    transform: translateY(-5px);
 }
 
 .promotion-item h2 {
