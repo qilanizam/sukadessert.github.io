@@ -249,6 +249,70 @@ button:hover {
   }
 }
 
+/* Audio Player Styling */
+.audio-player {
+  background-color: #264653;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+audio {
+  width: 100%;
+  outline: none;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #f4a261;
+  border-radius: 10px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+  color: #264653;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: white;
+}
+
+.audio-container {
+  background-color: #264653; /* Matches theme color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  width: 300px;
+  margin: 20px auto; /* Center the container horizontally */
+  display: flex;
+  justify-content: center; /* Center the audio controls inside the container */
+  align-items: center; /* Center items vertically */
+  text-align: center;
+}
+
+audio {
+  width: 100%; /* Makes the audio controls span the container */
+  outline: none;
+  border: none;
+  background: none;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #f4a261; /* Matches your theme color */
+  border-radius: 10px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+  color: #264653; /* Custom color for play/pause buttons */
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: white; /* Matches your theme for text visibility */
+}
+
 /* Footer */
 footer {
   background-color: #f8de7e;
