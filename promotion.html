@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Outlet-Chocolate Bliss</title>
+    <title>Chocolate Bliss</title>
     <link rel="stylesheet" href="promotion.css"> <!-- Link to CSS file -->
 </head>
 <body>
@@ -32,18 +32,27 @@
             <div class="promotion-item">
                 <h2>Special Offer: Buy 1 Get 1 Free!</h2>
                 <p>Purchase any chocolate dessert and get one free. Offer valid until the end of the month.</p>
+                <div class="secret-code hidden">
+                    <h3>Secret Code: CHOCO50</h3>
+                </div>
             </div>
 
             <!-- Discount -->
             <div class="promotion-item">
                 <h2>20% Off All Items</h2>
                 <p>Get 20% off on your entire order when you shop at our outlet. Limited time offer!</p>
+                <div class="secret-code hidden">
+                    <h3>Secret Code: SWEET20</h3>
+                </div>
             </div>
 
             <!-- Voucher -->
             <div class="promotion-item">
                 <h2>Voucher Code: SWEET20</h2>
                 <p>Use the voucher code <strong>SWEET20</strong> to enjoy an additional 20% off your purchase online or in-store.</p>
+                <div class="secret-code hidden">
+                    <h3>Secret Code: EXTRA20</h3>
+                </div>
             </div>
         </section>
         
@@ -52,5 +61,15 @@
     <footer>
         <p>&copy; 2025 Chocolate Bliss. All rights reserved.</p>
     </footer>
+
+    <script>
+        // JavaScript to handle the click event
+        document.querySelectorAll('.promotion-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Toggle the "revealed" class to show/hide the secret code
+                this.classList.toggle('revealed');
+            });
+        });
+    </script>
 </body>
 </html>
