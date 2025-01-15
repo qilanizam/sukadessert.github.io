@@ -18,92 +18,54 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Bounce Animation */
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    20% {
-        transform: translateY(-10px);
-    }
-    40% {
-        transform: translateY(0);
-    }
-    60% {
-        transform: translateY(-6px);
-    }
-    80% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-3px);
-    }
-}
-
-/* Apply bounce animation to the header */
-.products h1 {
-    color: #623b27;
-    font-size: 2.5rem;
-    animation: fadeIn 2s ease-out, bounce 1s ease infinite;
-}
-
-/* Fade In Effect for Product Items */
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Product List Layout - 4 items per row for larger screens */
+/* Center and fit the product list container */
 .product-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row for larger screens */
+    gap: 20px; /* Consistent gap between containers */
     margin-top: 30px;
+    width: 100%;
+    max-width: 1200px; /* Ensures the product list doesn't stretch too wide */
+    justify-items: center; /* Centers each product item horizontally */
 }
 
+/* Product Item Styling */
 .product-item {
     background-color: #f8de7e;
+    width: 250px; /* Set a fixed width */
+    height: 350px; /* Set a fixed height */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.6s ease-out forwards;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute space between elements */
+    align-items: center; /* Center content horizontally */
+    position: relative;
 }
 
-.product-item:nth-child(odd) {
-    animation-delay: 0.3s;
-}
-
-.product-item:nth-child(even) {
-    animation-delay: 0.6s;
-}
-
-.product-item img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border-radius: 50%;
-}
-
+/* Title styling for product */
 .product-item h2 {
     color: #623b27;
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
+/* Paragraph styling for product description */
 .product-item p {
     color: #333;
     font-size: 1rem;
     margin-bottom: 15px;
+    margin-top: 0;
 }
 
+/* Styling for Add to Cart button */
 .product-item button {
     background-color: #623b27;
     color: #fff;
@@ -113,15 +75,43 @@ body {
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s;
+    margin-top: 10px; /* Space above the button */
+    align-self: center; /* Centers the button horizontally */
 }
 
+/* Hover effect for button */
 .product-item button:hover {
     background-color: #4e2e1d;
 }
 
+/* Focus effect for button */
 .product-item button:focus {
     outline: none;
     box-shadow: 0 0 10px rgba(99, 59, 39, 0.6);
+}
+
+/* Image styling */
+.product-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 50%;
+}
+
+/* Keyframe for fade-up animation */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header styling */
+.products h1 {
+    color: #623b27;
+    font-size: 2.5rem;
+    animation: fadeIn 2s ease-out, bounce 1s ease infinite;
 }
 
 /* Adjustments for smaller screens */
@@ -135,68 +125,4 @@ body {
     .product-list {
         grid-template-columns: 1fr; /* 1 item per row on small screens */
     }
-}
-
-/* Audio Player Styling */
-.audio-player {
-    background-color: #264653;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    width: 300px;
-}
-
-audio {
-    width: 100%;
-    outline: none;
-}
-
-audio::-webkit-media-controls-panel {
-    background-color: #f4a261;
-    border-radius: 10px;
-}
-
-audio::-webkit-media-controls-play-button,
-audio::-webkit-media-controls-pause-button {
-    color: #264653;
-}
-
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display {
-    color: white;
-}
-
-.audio-container {
-    background-color: #264653; /* Matches theme color */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
-    width: 300px;
-    margin: 20px auto; /* Center the container horizontally */
-    display: flex;
-    justify-content: center; /* Center the audio controls inside the container */
-    align-items: center; /* Center items vertically */
-    text-align: center;
-}
-
-audio {
-    width: 100%; /* Makes the audio controls span the container */
-    outline: none;
-    border: none;
-    background: none;
-}
-
-audio::-webkit-media-controls-panel {
-    background-color: #f4a261; /* Matches your theme color */
-    border-radius: 10px;
-}
-
-audio::-webkit-media-controls-play-button,
-audio::-webkit-media-controls-pause-button {
-    color: #264653; /* Custom color for play/pause buttons */
-}
-
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display {
-    color: white; /* Matches your theme for text visibility */
 }
