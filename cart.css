@@ -1,25 +1,36 @@
+/* Global Reset */
+* {
+    box-sizing: border-box;
+}
+
 /* General Body Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-image: url('https://wallpapercave.com/wp/wp11593589.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     color: #333;
     line-height: 1.6;
 }
 
 /* Header Styling */
 header {
-    background-color: #623b27;
-    color: white;
+    background-color: #f8de7e;
+    color: #623b27;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header .logo img {
     height: 50px;
+    border-radius: 50%;
+    border: 5px solid #f4a261;
 }
 
 nav ul {
@@ -34,7 +45,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #623b27;
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 5px;
@@ -43,6 +54,10 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a.active {
+    background-color: #4e2e1d;
+}
+
+nav ul li a:focus {
     background-color: #4e2e1d;
 }
 
@@ -61,6 +76,19 @@ main {
     background-size: cover;
     padding: 70px 40px;
     border-radius: 10px;
+    position: relative;
+}
+
+.products::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);  /* Adjust opacity */
+    border-radius: 10px;
+    z-index: -1;
 }
 
 .products h1 {
@@ -69,6 +97,7 @@ main {
     margin-bottom: 30px;
 }
 
+/* Cart Items */
 #cart-items {
     list-style: none;
     padding: 0;
@@ -100,14 +129,14 @@ main {
 
 /* Buttons */
 button {
-    background-color: #623b27;
-    color: white;
+    background-color: #f8de7e;
+    color: #623b27;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.2rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
@@ -119,10 +148,15 @@ button:active {
     transform: scale(0.95);
 }
 
+button:focus {
+    outline: 3px solid #4e2e1d;
+    outline-offset: 2px;
+}
+
 /* Footer Styling */
 footer {
-    background-color: #623b27;
-    color: white;
+    background-color: #f8de7e;
+    color: #623b27;
     text-align: center;
     padding: 20px 0;
     margin-top: 30px;
@@ -146,5 +180,12 @@ footer {
 
     button {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #cart-items {
+        max-width: 100%;
+        padding: 10px;
     }
 }
