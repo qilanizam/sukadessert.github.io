@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   
     <title>Products - Chocolate Bliss</title>
     <link rel="stylesheet" href="products.css">
     <script src="textshow.js"></script>
     <script src="audiocontrol.js"></script>
+    <script>
+        // Initialize Cart from localStorage or empty if no cart exists
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to add item to cart
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                // If item already exists, increase quantity
+                existingItem.quantity += 1;
+            } else {
+                // If item does not exist, add a new item with quantity 1
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCart();
+        }
+
+        // Function to update the cart display and total price
+        function updateCart() {
+            const cartCount = document.getElementById('cart-count');
+            const totalPrice = document.getElementById('total-price');
+            const cartList = document.getElementById('cart-items');
+            
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            // Clear cart list before updating
+            cartList.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - RM ${item.price.toFixed(2)} x ${item.quantity}`;
+                cartList.appendChild(li);
+                total += item.price * item.quantity;
+            });
+            
+            totalPrice.textContent = `RM ${total.toFixed(2)}`;
+            
+            // Save the updated cart in localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    </script>
 </head>
 <body>
-   
     <header>
         <div class="logo">
             <img src="sukadessert logo.png" alt="Chocolate Dessert Logo">
@@ -20,7 +62,9 @@
                 <li><a href="about_us.html">About Us</a></li>
                 <li><a href="promotion.html">Promotion</a></li>
                 <li><a href="contact_us.html">Contact Us</a></li>
-                 <li><a href="register.html">Register</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+
             </ul>
         </nav>
     </header>
@@ -32,100 +76,112 @@
             <p>Explore our wide variety of handcrafted chocolates and treats.</p>
 
             <div class="product-list">
+                <!-- 12 Product Items -->
                 <div class="product-item">
-                    <h2>Dark Chocolate</h2>
-                    <img src="suka1.jpg" alt="Chocolate Dessert Logo">
-                    <p><ol type="i">  
-                        <li>Chocolate Crowd Brownies, size 7"</li> 
-                        <li>RM 59.90</li></ol></p>
+                    <h2>Crowd Brownies</h2>
+                    <img src="suka1.jpg" alt="Crowd Brownies">
+                    <p><strong>Price: RM 59.90</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Crowd Brownies', 59.90)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>Milk Chocolate</h2>
-                    <img src="suka2.jpg" alt="Chocolate Dessert Logo">
-                    <p><ol type="i">  
-                        <li>Mini Suka Cake</li> 
-                        <li>RM 18.00</li></ol></p>
+                    <h2>Mini Suka Cake</h2>
+                    <img src="suka2.jpg" alt="Mini Suka Cake">
+                    <p><strong>Price: RM 18.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mini Suka Cake', 18.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>White Chocolate</h2>
-                    <img src="suka3.jpg" alt="Chocolate Dessert Logo">
-                    <p><ol type="i">  
-                        <li>Elysium Cake</li> 
-                        <li>RM 16.00</li></ol></p>
+                    <h2>Elysium Cake</h2>
+                    <img src="suka3.jpg" alt="Elysium Cake">
+                    <p><strong>Price: RM 16.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Elysium Cake', 16.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>Dark Chocolate</h2>
-                    <img src="suka4.jpg" alt="Chocolate Dessert Logo">
-                    <p><ol type="i">  
-                        <li>4 Siblings</li> 
-                        <li>RM 48.00</li></ol></p>
+                    <h2>4 Siblings</h2>
+                    <img src="suka4.jpg" alt="4 Siblings">
+                    <p><strong>Price: RM 48.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('4 Siblings', 48.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>Milk Chocolate</h2>
-                    <img src="suka5.jpg" alt="Chocolate Dessert Logo">
-                    <p><ul style="list-style-type:circle;"> 
-                        <li>Happy Cheese Box</li> 
-                        <li>RM 25.00</li></ul></p>
+                    <h2>Happy Cheese Box</h2>
+                    <img src="suka5.jpg" alt="Happy Cheese Box">
+                    <p><strong>Price: RM 25.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Happy Cheese Box', 25.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>White Chocolate</h2>
-                    <img src="suka6.jpg" alt="Chocolate Dessert Logo">
-                    <p><ul style="list-style-type:circle;"> 
-                        <li>Brunt Cheese Cake - Nutella, size 4</li> 
-                        <li>RM 26.00</li></ul></p>
+                    <h2>Burnt CheeseCake</h2>
+                    <img src="suka6.jpg" alt="Burnt Cheese Cake">
+                    <p><strong>Price: RM 26.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Burnt Cheese Cake', 26.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>Dark Chocolate</h2>
-                    <img src="suka7.jpg" alt="Chocolate Dessert Logo">
-                    <p><ul style="list-style-type:circle;"> 
-                        <li>Party Pizza Cookies</li> 
-                        <li>RM 59.90</li></ul></p>
+                    <h2>Chocolate Fudge</h2>
+                    <img src="suka7.jpg" alt="Chocolate Fudge">
+                    <p><strong>Price: RM 35.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Chocolate Fudge', 35.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>Milk Chocolate</h2>
-                    <img src="suka8.jpg" alt="Chocolate Dessert Logo">
-                    <p><ul style="list-style-type:circle;"> 
-                        <li>Happy Dessert Box (Choc)</li> 
-                        <li>RM 25.00</li></ul></p>
+                    <h2>Caramel Delight</h2>
+                    <img src="suka8.jpg" alt="Caramel Delight">
+                    <p><strong>Price: RM 40.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Caramel Delight', 40.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>White Chocolate</h2>
-                    <img src="suka9.jpg" alt="Chocolate Dessert Logo">
-                    <p><ul style="list-style-type:square;">
-                        <li>Suka Bento</li>
-                        <li>RM 24.90</li></ul></p>
+                    <h2>Peanut Chocolate</h2>
+                    <img src="suka9.jpg" alt="Peanut Chocolate">
+                    <p><strong>Price: RM 32.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Peanut Chocolate', 32.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>Dark Chocolate</h2>
-                    <img src="suka10.jpg" alt="Chocolate Dessert Logo">
-                    <p><ul style="list-style-type:square;">
-                        <li>Chocolate Cookiesland</li>
-                        <li>RM 34.90</li></ul></p>
+                    <h2>Dark Truffles</h2>
+                    <img src="suka10.jpg" alt="Dark Truffles">
+                    <p><strong>Price: RM 55.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Dark Truffles', 55.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>Milk Chocolate</h2>
-                    <img src="suka11.jpg" alt="Chocolate Dessert Logo">
-                    <p><ul style="list-style-type:square;">
-                        <li>Chocolate Cheese in Cup</li>
-                        <li>RM 19.90</li></ul></p>
+                    <h2>Vanilla Cheesecake</h2>
+                    <img src="suka11.jpg" alt="Vanilla Cheesecake">
+                    <p><strong>Price: RM 45.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Vanilla Cheesecake', 45.00)">Add to Cart</button>
                 </div>
                 <div class="product-item">
-                    <h2>White Chocolate</h2>
-                    <img src="suka12.jpg" alt="Chocolate Dessert Logo">
-                    <p><ul style="list-style-type:square;">
-                        <li>ChocStick Cookies</li>
-                        <li>RM 28.00</li></ul></p>
+                    <h2>Mocha Cake</h2>
+                    <img src="suka12.jpg" alt="Mocha Cake">
+                    <p><strong>Price: RM 50.00</strong></p>
+                    <br>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart('Mocha Cake', 50.00)">Add to Cart</button>
                 </div>
             </div>
-            <br>
-            <br>
+            
             <!-- Audio Player for Background Music -->
-        <div class="audio-container">
-            <audio controls autoplay loop>
-            <source src="rnb.mp3" type="audio/mpeg">
-            <source src="rnb.mp3" type="audio/ogg">
-            Your browser does not support the audio element.
-              </audio>
+            <div class="audio-container">
+                <audio controls autoplay loop>
+                    <source src="rnb.mp3" type="audio/mpeg">
+                    <source src="rnb.mp3" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </section>
     </main>
