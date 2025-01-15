@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cart - Chocolate Bliss</title>
+    <link rel="stylesheet" href="products.css">
+    <script>
+        // Load cart items from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to display cart items
+        function displayCart() {
+            const cartList = document.getElementById('cart-items');
+            const totalPrice = document.getElementById('total-price');
+            cartList.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartList.innerHTML = '<p>Your cart is empty!</p>';
+            } else {
+                cart.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name} - RM ${item.price.toFixed(2)} x ${item.quantity}`;
+                    cartList.appendChild(li);
+                    total += item.price * item.quantity;
+                });
+            }
+            totalPrice.textContent = `Total: RM ${total.toFixed(2)}`;
+        }
+
+        // Function to clear the cart
+        function clearCart() {
+            localStorage.removeItem('cart');
+            cart = [];
+            displayCart();
+        }
+
+        // Initialize the cart page
+        window.onload = displayCart;
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="sukadessert logo.png" alt="Chocolate Dessert Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="outlet.html">Outlet</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="promotion.html">Promotion</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+                <li><a href="cart.html" class="active">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <h1>Your Cart</h1>
+            <ul id="cart-items" style="list-style: none; padding: 0;"></ul>
+            <h2 id="total-price">Total: RM 0.00</h2>
+            <button onclick="clearCart()">Clear Cart</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Chocolate Bliss. All rights reserved.</p>
+    </footer>
+</body>
+</html>
