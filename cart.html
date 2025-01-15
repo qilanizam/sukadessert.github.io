@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Cart - Chocolate Bliss</title>
-    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="cart.css"> <!-- Corrected the path for cart.css -->
     <script>
         // Load cart items from localStorage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -15,11 +15,13 @@
             let total = 0;
 
             if (cart.length === 0) {
-                cartList.innerHTML = '<p>Your cart is empty!</p>';
+                cartList.innerHTML = '<p>Your cart is empty! <a href="products.html">Browse products</a></p>';
             } else {
-                cart.forEach(item => {
+                cart.forEach((item, index) => {
                     const li = document.createElement('li');
-                    li.textContent = `${item.name} - RM ${item.price.toFixed(2)} x ${item.quantity}`;
+                    li.innerHTML = `${item.name} - RM ${item.price.toFixed(2)} x 
+                        <input type="number" value="${item.quantity}" min="1" id="qty-${index}" />
+                        <button onclick="updateQuantity(${index})">Update</button>`;
                     cartList.appendChild(li);
                     total += item.price * item.quantity;
                 });
@@ -27,14 +29,24 @@
             totalPrice.textContent = `Total: RM ${total.toFixed(2)}`;
         }
 
-        // Function to clear the cart
-        function clearCart() {
-            localStorage.removeItem('cart');
-            cart = [];
-            displayCart();
+        // Function to update the quantity of an item in the cart
+        function updateQuantity(index) {
+            const newQuantity = document.getElementById(`qty-${index}`).value;
+            cart[index].quantity = parseInt(newQuantity);  // Update the cart array
+            localStorage.setItem('cart', JSON.stringify(cart));  // Save the updated cart
+            displayCart();  // Re-display the updated cart
         }
 
-        // Initialize the cart page
+        // Function to clear the cart
+        function clearCart() {
+            if (confirm('Are you sure you want to clear your cart?')) {
+                localStorage.removeItem('cart');  // Remove the cart from localStorage
+                cart = [];
+                displayCart();
+            }
+        }
+
+        // Initialize the cart page when it loads
         window.onload = displayCart;
     </script>
 </head>
@@ -63,10 +75,8 @@
             <h2 id="total-price">Total: RM 0.00</h2>
             <button onclick="clearCart()">Clear Cart</button>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Chocolate Bliss. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+        <section class="checkout">
+            <h1>Checkout</h1>
+            <ul id="checkout-items" style="list-style: none; padding: 0;"></ul>
+            <h2 id="total-price">Total: RM 0.
