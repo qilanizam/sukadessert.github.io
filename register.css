@@ -1,5 +1,12 @@
 @import url('index.css'); /* Import common styles */
 
+.logo img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 5px solid #f4a261;
+}
+
 .register {
     text-align: center;
     padding: 50px 20px;
