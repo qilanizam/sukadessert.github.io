@@ -58,7 +58,6 @@ nav ul li a:hover {
   color: #fff;
   position: relative;
   font-size: 250%;
-  font-family:Times New Roman;
 }
 
 .hero::before {
